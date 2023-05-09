@@ -1,0 +1,43 @@
+@baseUrl = http://127.0.0.1:8000/api
+
+# получение списка датчиков
+GET {{baseUrl}}/sensors/
+Content-Type: application/json
+
+###
+
+# создание датчика
+POST {{baseUrl}}/sensors/
+Content-Type: application/json
+
+{
+    "name": "ESP83",
+    "description": "Новый датчик через api32"
+}
+
+###
+
+# обновление датчика
+PATCH {{baseUrl}}/sensors/16
+Content-Type: application/json
+
+{
+    "description": "Перенес датчик в ванную комнату"
+}
+
+###
+
+# добавление измерения
+POST {{baseUrl}}/measurements/
+Content-Type: application/json
+
+{
+  "id_sensor": 16,
+  "temperature": 16.5
+}
+
+###
+
+# получение информации по датчику
+GET {{baseUrl}}/sensors/16
+Content-Type: application/json
